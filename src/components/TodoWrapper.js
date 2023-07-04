@@ -15,10 +15,11 @@ const TodoWrapper = () => {
   const addTodo = (todo) => {
     if (!todo.trim()) return; //guard clause
 
-    setTodos([
+    const newTodos = [
       ...todos,
       { id: uuidv4(), task: todo, completed: false, isEditing: false },
-    ]);
+    ];
+    setTodos(newTodos);
     // console.log(todos);
   };
 
@@ -42,10 +43,10 @@ const TodoWrapper = () => {
     );
   };
 
-  const editTask = (list, id) => {
+  const editTask = (task, id) => {
     setTodos(
       todos.map((todo) =>
-        todo.id === id ? { ...todo, list, isEditing: !todo.isEditing } : todo
+        todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
       )
     );
   };
