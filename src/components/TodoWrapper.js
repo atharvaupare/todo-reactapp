@@ -56,7 +56,7 @@ const TodoWrapper = () => {
 
   return (
     <div className="TodoWrapper">
-      <h1>Todo App</h1>
+      <h1>Let's procrastinate</h1>
       <TodoForm addTodo={addTodo} />
 
       {todos.map((todo) =>
