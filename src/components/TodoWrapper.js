@@ -7,6 +7,7 @@ uuidv4();
 
 const TodoWrapper = () => {
   const [todos, setTodos] = useState([]);
+  console.log(todos)
 
   useEffect(() => {
     const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
@@ -54,10 +55,28 @@ const TodoWrapper = () => {
     localStorage.setItem("todos", JSON.stringify(newTodos));
   };
 
+  const setAllComplete = () => {
+    const newTodos = todos.map(todo => 
+      ({...todo, completed: true})
+      
+    )
+    setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
+
+
+  console.log(newTodos)
+  }
+
+  const resetList = async () => {
+    console.log("reset")
+    setTodos([]);
+    localStorage.setItem("todos", JSON.stringify([]))
+  }
+
   return (
     <div className="TodoWrapper">
       <h1>Let's procrastinate !</h1>
-      <TodoForm addTodo={addTodo} />
+      <TodoForm addTodo={addTodo} setAllComplete={setAllComplete} resetList={resetList}/>
 
       {todos.map((todo) =>
         todo.isEditing ? (

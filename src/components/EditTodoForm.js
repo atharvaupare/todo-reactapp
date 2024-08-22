@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export const EditTodoForm = ({ editTodo, list }) => {
   const [value, setValue] = useState(list.task);
 
+
   const handleSubmit = (e) => {
     // prevent default action
     e.preventDefault();
@@ -21,6 +22,7 @@ export const EditTodoForm = ({ editTodo, list }) => {
       <button type="submit" className="todo-btn">
         Add Task
       </button>
+    
     </form>
   );
 };
